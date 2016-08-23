@@ -24,14 +24,13 @@ import (
 
 	"golang.org/x/tools/playground/socket"
 
-	// Imports so that go build/install automatically installs them.
-	_ "golang.org/x/tour/pic"
-	_ "golang.org/x/tour/tree"
-	_ "golang.org/x/tour/wc"
+	_ "tour/pic"
+	_ "tour/tree"
+	_ "tour/wc"
 )
 
 const (
-	basePkg    = "golang.org/x/tour/"
+	basePkg    = "tour/"
 	socketPath = "/socket"
 )
 
@@ -50,7 +49,7 @@ var (
 // isRoot reports whether path is the root directory of the tour tree.
 // To be the root, it must have content and template subdirectories.
 func isRoot(path string) bool {
-	_, err := os.Stat(filepath.Join(path, "content", "welcome.article"))
+	_, err := os.Stat(filepath.Join(path, "content", "d2_campus_2016.article"))
 	if err == nil {
 		_, err = os.Stat(filepath.Join(path, "template", "index.tmpl"))
 	}

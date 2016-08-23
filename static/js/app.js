@@ -10,7 +10,7 @@ config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $routeProvider.
         when('/', {
-            redirectTo: '/welcome/1'
+            redirectTo: '/d2_campus_2016/1'
         }).
         when('/list', {
             templateUrl: '/static/partials/list.html',
