@@ -1,70 +1,116 @@
 Tutorial
 
-* Hello, 세계
+* 개요
 
-Welcome to a tour of the [[https://golang.org/][Go programming language]].
+2016년 5회 D2 Campus Seminar '[[https://golang.org/][Go]] Gopher 길들이기'를 위해 만들어진 온라인 투어 페이지입니다.
 
-The tour is divided into a list of modules that you can
-access by clicking on
-[[javascript:highlight(".logo")][A Tour of Go]] on the top left of the page.
+- 처음 페이지로 돌아가려면, 화면 좌상단의 [[javascript:highlight(".logo")][Go Gopher 길들이기]]를 클릭하기 바랍니다.
+- 콘텐츠의 목록을 보려면, 화면 우상단의 [[javascript:highlightAndClick(".nav")][메뉴]]를 클릭하기 바랍니다.
+- 이전 페이지로 돌아가려면, 화면 좌하단의 [[javascript:highlight(".prev-page")]["<"]]을 클릭하거나 키보드의 `PageUp` 키를 누르세요.
+- 다음 페이지로 넘어가려면, 화면 좌하단의 [[javascript:highlight(".next-page")][">"]]을 클릭하거나 키보드의 `PageDown` 키를 누르세요.
 
-You can also view the table of contents at any time by clicking on the [[javascript:highlightAndClick(".nav")][menu]] on the top right of the page.
+본 온라인 투어는 직접 동작 가능합니다. 코드 에디터의 아래에 위치하는 [[javascript:highlightAndClick("#run")][Run]] 버튼을 클릭하면 프로그램이 수행됩니다.
 
-Throughout the tour you will find a series of slides and exercises for you
-to complete.
+본 온라인 투어는 2016년 5회 D2 Campus Seminar를 위해 만들어졌으며, 설명문을 포함하여 많은 부분을 [[https://go-tour-kr.appspot.com][한글 공식 온라인 투어]]에서 참고하였습니다.
 
-You can navigate through them using
+** Hello, world
 
-- [[javascript:highlight(".prev-page")]["previous"]] or `PageUp` to go to the previous page,
+첫번째 예제입니다. 화면에 간단히 "Hello, world"라는 문자열을 출력합니다.
 
-- [[javascript:highlight(".next-page")]["next"]] or `PageDown` to go to the next page.
+    package main
 
-The tour is interactive. Click the
-[[javascript:highlightAndClick("#run")][Run]] button now 
-(or type `shift-enter`) to compile and run the program on
-#appengine: a remote server.
-your computer.
-The result is displayed below the code.
+프로그램의 진입점인 `main` 함수가 있는 패키지임을 나타냅니다.
 
-These example programs demonstrate different aspects of Go. The programs in the tour are meant to be starting points for your own experimentation.
+    import "fmt"
 
-Edit the program and run it again.
+[[https://golang.org/pkg/fmt/][fmt]] 패키지를 사용하는 것을 명시합니다. 패키지 이름은 디렉토리 경로의 마지막 이름을 사용하는 것이 규칙입니다.
+예를 들어 "path/filepath" 를 사용한다면 패키지명은 filepath 입니다.
 
-Note that when you click on [[javascript:highlightAndClick("#format")][Format]] or `ctrl-enter`
-the text in the editor is formatted using the
-[[https://golang.org/cmd/gofmt/][gofmt]] tool. You can switch syntax highlighting on and off
-by clicking on the [[javascript:highlightAndClick(".syntax-checkbox")][syntax]] button.
-
-When you're ready to move on, click the [[javascript:highlightAndClick(".next-page")][right arrow]] below or type the `PageDown` key.
+** 과제
+- 1. [[https://golang.org/pkg/fmt/][fmt]](클릭) 패키지 문서를 살펴보세요. 패키지가 제공하는 함수들을 살펴보세요.
+- 2. [[https://golang.org/pkg/fmt/#Printf][fmt.Printf]] 함수를 사용하도록 프로그램을 수정하세요.
+- 3. `name` 이라는 `string` 형 변수를 선언하고, 어떤 문자열 값을 넣어 초기화 한 후, 이를 [[https://golang.org/pkg/fmt/#Printf][fmt.Printf]] 함수를 사용하여 출력해 보세요.
 
 .play d2_campus_2016/hello.go
 
-* Go local
 
-The tour is available in other languages:
+* 제어문
 
-- [[https://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
-- [[https://go-tour-ca.appspot.com/][Catalan — Català]]
-- [[https://go-tour-de.appspot.com/][German — Deutsch]]
-- [[https://go-tour-es.appspot.com/][Spanish — Español]]
-- [[https://go-tour-fr.appspot.com/][French — Français]]
-- [[https://go-tour-id2.appspot.com/][Indonesia — Bahasa]]
-- [[https://go-tour-ita.appspot.com/][Italian — Italiano]]
-- [[https://go-tour-he.appspot.com/][Hebrew — עִבְרִית]]
-- [[https://go-tour-jp.appspot.com/][Japanese — 日本語]]
-- [[https://go-tour-kr.appspot.com/][Korean — 한국어]]
-- [[https://go-tour-ro.appspot.com/][Romanian — Română]]
-- [[https://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
-- [[https://go-tour-zh-tw.appspot.com/][Traditional Chinese — 中文（繁體）]]
-- [[https://go-tour-ua.appspot.com/][Ukrainian — Українська]]
-- [[https://go-tour-uz.appspot.com/][Uzbek — Ўзбекча]]
-- [[https://go-tour-turkish.appspot.com/][Turkish - Türkçe]]
+`if`, `for`, `switch` 문을 실습해 봅니다.
 
-Click the [[javascript:highlightAndClick(".next-page")]["next"]] button or type `PageDown` to continue.
+** if 문
+`if` 문은 C와 Java와 비슷합니다. 조건 표현을 위해 ( ) 는 사용하지 않습니다. 하지만 실행문을 위한 { } 는 반드시 작성해야합니다.
 
-* Congratulations
+** for 문
+Go 언어는 반복문이 `for` 밖에 없습니다.
+기본적인 `for` 반복문은 C와 Java 언어와 거의 유사합니다. 다른점은 소괄호 ( )가 필요하지 않다는 것입니다.
+하지만 실행문을 위한 중괄호 { } 는 필요합니다.
 
-You've finished the first module of the tour!
+** switch 문
+다른 일반적인 언어를 아는 분이라면 `switch` 에 대해서 잘 알 것입니다.
+다른 언어와 다른점은 `case` 의 코드 실행을 마치면 알아서 `break` 를 한다는 점입니다.
 
-Now click on [[javascript:highlightAndClick(".logo")][A Tour of Go]] to find out what else
-you can learn about Go, or go directly to the [[javascript:click('.next-page')][next lesson]].
+`break` 문은 `for` 문과 함께 사용할 때 유용합니다. `label` 을 명시한 for문을 한꺼번에 빠져나갈 때 사용합니다.
+    outerloop:
+    for {
+        switch {
+        case i > 100:
+            // do something
+            break outerloop
+        } 
+    }
+
+`fallthrough` 로 끝나는 case는 스스로 break를 하지 않고, 다음 `case` 문을 평가하도록 합니다.
+
+.play d2_campus_2016/cond.go
+
+
+* 제어문 II
+
+** 과제
+Fizz Buzz 문제를 구현해 봅니다.
+
+Fiz Buzz 문제는 다음과 같은 규칙을 가지고 있습니다.
+
+- (1) 3으로 나누어지는 수가 주어지면 숫자 대신 `fizz` 를 출력합니다.
+- (2) 5로 나누어지는 수가 주어지면 숫자 대신 `buzz` 를 출력합니다.
+- (3) 3과 5로 나누어지는 수(e.g., 15)가 주어지면 숫자 대신 `fizz buzz` 를 출력합니다.
+
+위 규칙에 맞춰, 1에서 100까지 숫자를 출력해 보세요.
+
+.play d2_campus_2016/fizzbuzz.go
+
+
+* function
+
+
+* struct 타입
+`struct` 타입은 Go 언어에서의 객체입니다. 
+
+* slice 타입
+
+* map 타입
+
+* Goroutine I
+
+* Goroutine II
+
+
+* 축하합니다!
+
+2016년 5회 D2 Campus Seminar 'Go Gopher 길들이기'의 모든 실습 과정을 살펴보았습니다.
+이제 Gopher로의 첫 발을 내딛게 되었습니다. 축하합니다!
+
+더 자세하고 심화된 실습은 [[https://tour.golang.org][공식 온라인 투어]] 및 [[https://go-tour-kr.appspot.com][한글 공식 온라인 투어]]에서 진행할 수 있습니다.
+
+Go 1.x 버전은 `Go 1` 이라는 언어 스펙을 따르고 있어 언어적인 구조는 2.x 버전이 나오기 전까지 크게 바뀌지 않겠지만, 아무래도 [[https://tour.golang.org][공식 온라인 투어]]가 최신의 내용을 반영하고 있을 확률이 높습니다.
+
+Go 언어는 구조적으로 매우 단순하며, 아래 링크의 공식 안내서를 읽어보는 것만으로도 언어적인 특성은 대부분 습득하실 수 있으리라 생각합니다.
+
+- [[https://golang.org/doc/install][Getting Started]]
+- [[https://golang.org/doc/code.html][How to Write Go Code]]
+- [[https://golang.org/doc/effective_go.html][Efective Go]]
+
+또, 아래와 같은 온라인 서적에서 Go 언어를 보다 자세하고 세심하게 살펴볼 수 있습니다. (게다가 국문으로 번역되었죠.)
+
+- [[http://www.codingnuri.com/golang-book/index.html][An Introduction to Programming in Go -Caleb Doxsey]]
