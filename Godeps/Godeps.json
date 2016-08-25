@@ -1,0 +1,26 @@
+{
+	"ImportPath": "tour",
+	"GoVersion": "go1.7",
+	"GodepVersion": "v60",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "golang.org/x/net/websocket",
+			"Rev": "35ec611a141ee705590b9eb64d673f9e6dfeb1ac"
+		},
+		{
+			"ImportPath": "golang.org/x/tools/godoc/static",
+			"Rev": "8b3828f1c8f7c67e5ebb863a4c632937778eaaae"
+		},
+		{
+			"ImportPath": "golang.org/x/tools/playground/socket",
+			"Rev": "8b3828f1c8f7c67e5ebb863a4c632937778eaaae"
+		},
+		{
+			"ImportPath": "golang.org/x/tools/present",
+			"Rev": "8b3828f1c8f7c67e5ebb863a4c632937778eaaae"
+		}
+	]
+}

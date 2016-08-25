@@ -87,13 +87,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if host == "" {
-		host = "localhost"
-	}
 	if host != "127.0.0.1" && host != "localhost" {
 		log.Print(localhostWarning)
 	}
 	httpAddr = host + ":" + port
+	log.Print("server is going to listen ", httpAddr)
 
 	if err := initTour(root, "SocketTransport"); err != nil {
 		log.Fatal(err)
